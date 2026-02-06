@@ -1,0 +1,28 @@
+# Maven
+/target/
+
+# Karate reports (local/generated)
+/karate-reports*
+
+# IDE files
+/.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Node / env
+.env
+
+# Build wrappers and misc
+/.mvn/

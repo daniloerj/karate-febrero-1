@@ -1,0 +1,35 @@
+name: CI - Karate Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  karate-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17 and Maven cache
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Run Karate tests (regression tag)
+        run: mvn test -Dkarateoption='--tags @regression'
+        env:
+          MAVEN_OPTS: -Xmx2G
+
+      - name: Upload Karate + Surefire reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: karate-reports-${{ github.run_id }}
+          path: |
+            target/karate-reports
+            target/surefire-reports
