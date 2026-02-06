@@ -17,7 +17,7 @@ Estructura principal
 
 Requisitos
 
-- Java 11+ instalado y disponible en `JAVA_HOME`.
+- Java 17 o Java 21 instalado y disponible en `JAVA_HOME`.
 - Maven instalado (3.x) o usar el wrapper si lo configuras.
 - Conexión a Internet para ejecutar requests contra `restful-booker.herokuapp.com` (usado en los tests de ejemplo).
 
